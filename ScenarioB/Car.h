@@ -4,6 +4,8 @@
 
 #include"Vehicle.h"
 #include"CarType.h"
+#include"VehicleType.h"
+#include"CarType.h"
 
 class Car:public Vehicle
 {
@@ -12,6 +14,12 @@ CarType _car_type;
  
  public:
     //Calling getter since private property of parent cannot be accessed in child
+    Car(std::string id, std::string brand, float price,VehicleType type,CarType cType);
+
+    Car(std::string id, std::string brand, VehicleType type,CarType cType);
+
+    float CalculateTax() override;
+
    
     ~Car() {
          std::cout<<"Car part of Vehicle with Id:"<<id()<<"is destroyed"<<std::endl;

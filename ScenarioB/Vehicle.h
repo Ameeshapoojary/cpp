@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include"Type.h"
+#include"VehicleType.h"
 
 
 
@@ -12,13 +13,13 @@ class Vehicle
 private:
     std::string _id;
     std::string _brand;
-    Type _type;
+    VehicleType _type;
     float _price;
 public:
     
     Vehicle(const Vehicle& obj )=default;
-    Vehicle(std::string id,std::string brand,Type type,float price );
-    Vehicle(std::string id,std::string brand,Type type );
+    Vehicle(std::string id,std::string brand,float price,VehicleType type);
+    Vehicle(std::string id,std::string brand,VehicleType type );
     //Declaring abstract method in c++
     virtual float CalculateTax()=0;
 
@@ -30,7 +31,7 @@ public:
 
     std::string brand() const { return _brand; }
 
-    Type type() const { return _type; }
+    VehicleType type() const { return _type; }
 
     float price() const { return _price; }
 };
