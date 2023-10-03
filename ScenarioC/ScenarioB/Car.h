@@ -25,6 +25,10 @@ CarType _car_type;
          std::cout<<"Car part of Vehicle with Id:"<<id()<<"is destroyed"<<std::endl;
     }
     CarType carType() const {return _car_type;}//automatically
+
+    friend std::ostream &operator<<(std::ostream &os, const Car &rhs);
 };
+std::string DisplayEnum(const CarType value);
+
 
 #endif // CAR_H

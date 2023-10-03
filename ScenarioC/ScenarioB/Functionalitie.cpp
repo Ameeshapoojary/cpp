@@ -6,8 +6,15 @@
 void CreateObj(Vehicle* arr[3])
 {
     arr[0]=new Car("v101","Maruti",870000.0f,VehicleType::CAR,CarType::SUV);
-    arr[1]=new Bike("bk11" ,"Bajaj",VehicleType::BIKE,31.0f,BikeType::SPORTS);
+    arr[1]=new Bike("bk11" ,"Bajaj",300000.0f,VehicleType::BIKE,31.0f,BikeType::SPORTS);
     arr[2]=new Car("v103","Hyundai",800000.0f,VehicleType::CAR,CarType::SUV);
+
+    //TO PRINT ACTUAL OBJ OF THE ADDRESS
+
+    for(int i=0;i<3;i++)
+    {
+        std::cout << *(arr[i]) <<std::endl;
+    }
 
 }
 

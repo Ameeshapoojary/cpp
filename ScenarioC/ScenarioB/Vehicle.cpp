@@ -15,3 +15,27 @@ Vehicle::Vehicle(std::string id, std::string brand, VehicleType type)
 
 {
 }
+
+std::ostream &operator<<(std::ostream &os, const Vehicle &rhs) {
+    os << "_id: " << rhs._id
+       << " _brand: " << rhs._brand
+       << " _type: " << DisplayEnum(rhs._type)
+       << " _price: " << rhs._price;
+    return os;
+}
+
+std::string DisplayEnum(const VehicleType value)
+{
+    if(value ==VehicleType::BIKE)
+    {
+        return "BIKE";
+    }
+    else if(value ==VehicleType::CAR)
+    {
+        return "CAR";
+    }
+    else{
+        return "OTHER";
+    }
+    
+}
