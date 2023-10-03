@@ -22,3 +22,11 @@ float AvgStoreCredits(Customer *arr[3])
     return total/3;
 
 }
+
+void FreeMemory(Customer *arr[3])
+{
+    for(int i=0;i<3;i++)
+    {
+         delete arr[i];
+    }
+}

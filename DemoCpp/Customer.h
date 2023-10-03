@@ -14,7 +14,7 @@ public:
     Customer(const Customer& obj)=default;
     Customer(int id,std::string name,CustomerType ctype,float storeCredits);
     ~Customer() {
-        std::cout<<"Customer ID"<<_customer_Id<<"is destroyed";
+        std::cout<<"Customer ID:"<<_customer_Id<<"is destroyed"<<std::endl;
     }
 
     int customerId() const { return _customer_Id; }
