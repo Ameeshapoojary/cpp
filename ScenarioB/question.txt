@@ -1,0 +1,6 @@
+-Same as previous question
+-Create a class Car with the folloeing attributes
+-_type which could be SEDAN,SUV,HATCHBACK
+-CalculateTax whose implementation is "return 10%of_price"
+-calculateTax whose implementation might change in each child but
+signature is"takes no parameter ,return float
