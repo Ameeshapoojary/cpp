@@ -1,0 +1,39 @@
+Create a class Customer with the following attributes
+
+● customerId which is an integer value
+
+● customerName which is a string value.
+
+● customerType which could be either REGULAR, PREMIUM or VIP
+
+● customerStoreCredits which is a number indicating the amount of balance or credits a
+
+customer has in their account.
+
+● Ability to copy a Customer object to construct a new object.
+
+● Ability to gain read-write access to all data members of the class.
+
+● Ability to use << operator to display data values of an object of the Customer class.
+
+● A parameterized constructor to construct a new Customer by passing values for each
+
+data member of the class.
+
+Create a functionalities.h and functionalities.cpp file with the following functions
+
+● A function to find and return a container of Customer objects whose customerType
+
+matches the type passed as the second argument.
+
+● A function to return a container of all Customer instances whose customerStoreCredits
+
+are between 100 and 200 (both values included).
+
+● A function to find the average customerStoreCredits of all customers whose customer
+
+type matches the type provided as the second argument.
+
+Demonstrate all functionalities by creating an appropriate main function and invoking all relevant
+
+functionalities.
