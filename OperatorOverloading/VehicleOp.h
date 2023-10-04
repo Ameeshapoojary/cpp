@@ -30,12 +30,8 @@ public:
     //e1 + e2
     float operator+( Vehicle e2){//float added to complete operator overloading-->added as return typr
         //current obj price plus passed obj price
-        return this->price()+e2.price();
-        }//this->price()-->Object
+        return this->price()+e2.price();//this->price()-->Object
 
-    float operator+( Vehicle* e2){//float added to complete operator overloading-->added as return typr
-        //current obj price plus passed obj price
-        return this->price()+e2->price();
     }
 
     std::string brand() const { return _brand; }
@@ -44,7 +40,12 @@ public:
 
     VehicleType type() const { return _type; }
 
-    friend std::ostream &operator<<(std::ostream &os, const Vehicle &rhs);
+    friend std::ostream& operator<<(std::ostream& os, const Vehicle obj)
+    {
+        os<<"Id:"<<obj._id<<"\t"<<"Brand:"<<obj._brand
+        <<"\t"<<"Price:"<<obj._price<<"\t"<<"Type:"
+        <<DisplayEnum(obj._type);
+    }
     
 };
 

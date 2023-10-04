@@ -20,7 +20,14 @@ public:
         Complex temp(r,i);
         return temp;
     }
-
+friend std::ostream &operator<<(std::ostream &os, const Complex &rhs);
     
 };
- 
+ std::ostream &operator<<(std::ostream &os, const Complex &rhs) {
+        os << "_real: " << rhs._real
+           << " _imag: " << rhs._imag;
+        return os;
+    }//friend is a function is not member function of class
+    //Friendly to a class but not member of class
+    //can acces private member but not legal(but its not member of the 
+    //class to access the private member)
