@@ -6,11 +6,25 @@ as a token too!
 const int * ptr;
 -->int is separate token
 -->* is a separate token
+const int * ptr;
+-->this is constant integer
+
+int const * ptr=&n1;-->this is correct
+-->const cannot be applied for *
 
 
+//in java we use final instead of const
 
+const -can be taken from the user 
+-->and use it 
+-->and cannot modify it
 
+=>obj on stack-->()
+=>obj on 
 
+=>Marking a function const-->
+==> Obj passed a const-->can only call member functionwhich is also 
+marked as const
 
 
 

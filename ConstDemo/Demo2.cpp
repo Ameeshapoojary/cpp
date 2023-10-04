@@ -5,7 +5,7 @@ void Demo(){
     //const is applied on 'int' not on 'int*'
 
     //ptr  is a pointer to a CONSTANT integer
-    const int* ptr=&n1;
+     int const* ptr=&n1;
 
     //since int part is constant,I cannot use pointer to change n1's value
     //*ptr=100;//not alllowed
