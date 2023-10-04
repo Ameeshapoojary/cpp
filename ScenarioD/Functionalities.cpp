@@ -3,7 +3,7 @@
 
 void CreateObj(Vehicle *arr[3])
 {
-    arr[0]=new Vehicle("101","Honda",607999.0f,VehicleType::CAR);
+    arr[0]=new Vehicle("101","Honda",699.0f,VehicleType::CAR);
     arr[1]=new Vehicle("102","Honda",607999.0f,VehicleType::CAR);
     arr[2]=new Vehicle("103","Honda",607999.0f,VehicleType::CAR);
    
@@ -36,5 +36,8 @@ void MinimumPrice(Vehicle *arr[3])
         result=arr[i];
         }
     }
-    std::cout<<"MinimumPrice:"<<result<<std::endl;
+    std::cout<<"MinimumPrice:"<<*result<<std::endl;
+        std::cout<<"MinimumPrice:"<<result->price()<<std::endl;
+
+
 }
