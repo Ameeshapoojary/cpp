@@ -29,6 +29,19 @@ public:
     ~Car() {
         std::cout<<carChassisNumber<<"is destroyed"<<std::endl;
     }
+    
+    Car operator+(Car n1 )
+    {
+        carCategory a=this->carChassisNumber+ n2.carChassisNumber;
+        carCategory b=this->carBrand+ n2.carBrand;
+        carCategory c=this->carModel+ n2.carModel;
+        carCategory d=this->carCategory+ n2.carCategory;
+        carCategory e=this->carPrice+ n2.carPrice;
+        carCategory f=this->carSeatCount+ n2.carSeatCount;
+        carCategory g=this->carFuelCapacity+ n2.carFuelCapacity;
+        Car temp(a,b,c,d,e,f,g);
+        return temp;
+    }
 
     std::string getCarChassisNumber() const { return carChassisNumber; }
     void setCarChassisNumber(const std::string &carChassisNumber_) { carChassisNumber = carChassisNumber_; }

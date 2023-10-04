@@ -27,7 +27,9 @@ public:
         std::cout<<"Object with ID"<<_id<<"is destroyed"<<std::endl;
     }
 
-    std::string id() const { return _id; }
+    std::string id() const 
+    { return _id; 
+    }
 
     std::string brand() const { return _brand; }
 
