@@ -1,0 +1,21 @@
+Same as the original question
+--Scenario D--Overloading-->
+In classs Vehicle -->
+-A function Calculate Tax which will take 1 parameter(float)
+-It returns parameter times price
+-A function CalculateTax that takes 0 parameter and return 18% of price as tax
+-A function CalculateTax that takes 2 parameters(cgst and sgst float values) it returns cgst time price plus(sgst
+times price *3) A answer
+
+float Vehicle::CalculateTax(float tax_percent)
+{
+    return tax_percent*_price;
+}
+
+float Vehicle::CalculateTax(float cgst, float sgst)
+{
+    return (cgst*_price)+(sgst*_price*3);
+}
+
+functionalities-->
+-A function to find the car with minimum price and print all its details
