@@ -5,8 +5,13 @@
 
 bool CheckNull(Employee *arr[3])
 {
-    bool flag =true;
+    bool flag=true;
     for(int i=0;i<3;i++){
+        if(arr[i]!=nullptr)
+            flag=false;
+    }
+
+    return flag;
 }
 
 void CreateObj(Employee *arr1[3])
@@ -38,9 +43,9 @@ void CreateObj(Employee *arr1[3])
 
 Employee *EmployeeWithHighestSalary(Employee *arr1[3])
 {   
-    if(CheckNull(arr1)({
+    if(CheckNull(arr1)){
         //data is empty
-        return nullptr;//MORE ON THIS LATER
+        throw std::runtime_error("Data is empty");
     }
     //keep all the pointer in position
     Employee* result=arr1[0];
@@ -79,6 +84,10 @@ int CountEmpWithGivenDept(Employee *arr1[3], DepartmentType type)
 //To get Avg Budget of project by Employee
 float AvgBudget(Employee *arr[3])
 {
+    if(CheckNull(arr)){
+        //data is empty
+        throw std::runtime_error("Data is empty");
+    }
     float total=0.0f;
     for(int i=0;i<3;i++){
         total+=(arr[i])->project()->budget();
@@ -88,7 +97,8 @@ float AvgBudget(Employee *arr[3])
 }
 
 void FreeMemory(Employee *arr1[3])
-{
+{ 
+    //checknull is not required here
     //delete the inner Projet pointer
     for(int i=0;i<3;i++)
     {
