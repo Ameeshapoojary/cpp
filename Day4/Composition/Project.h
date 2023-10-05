@@ -13,7 +13,7 @@ public:
     Project(const Project&)=delete;
     Project(std::string name,int duration,float budget);
     ~Project() {
-        std::cout<<"Project name"<<_name<<"is destroyed"<<std::endl;
+        std::cout<<"Project name "<<_name<<" is destroyed"<<std::endl;
 
     }
 

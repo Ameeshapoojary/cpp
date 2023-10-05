@@ -21,7 +21,7 @@ public:
     Employee(std::string id, std::string name,float salary,DepartmentType dept,Project* project);
     ~Employee() {
         delete _project;
-        std::cout<<"Employee name"<<_id<<"Object destroyed"<<std::endl;
+        std::cout<<"Employee name "<<_id<<" Object destroyed"<<std::endl;
     }
 
     std::string id() const { return _id; }

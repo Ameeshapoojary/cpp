@@ -2,11 +2,13 @@
 #include"DepartmentType.h"
 #include"Employee.h"
 #include"Project.h"
+#define SIZE 3
 
-bool CheckNull(Employee *arr[3])
+
+bool CheckNull(Employee *arr[SIZE])
 {
     bool flag=true;
-    for(int i=0;i<3;i++){
+    for(int i=0; i<SIZE; i++){
         if(arr[i]!=nullptr)
             flag=false;
     }
@@ -14,7 +16,7 @@ bool CheckNull(Employee *arr[3])
     return flag;
 }
 
-void CreateObj(Employee *arr1[3])
+void CreateObj(Employee *arr1[SIZE])
 {
     arr1[0]=new Employee{
         "E101",
@@ -41,7 +43,7 @@ void CreateObj(Employee *arr1[3])
 
 }
 
-Employee *EmployeeWithHighestSalary(Employee *arr1[3])
+Employee *EmployeeWithHighestSalary(Employee *arr1[SIZE])//do friends...
 {   
     if(CheckNull(arr1)){
         //data is empty
@@ -49,14 +51,17 @@ Employee *EmployeeWithHighestSalary(Employee *arr1[3])
     }
     //keep all the pointer in position
     Employee* result=arr1[0];
+
     // Employee* result=nullptr;
     float max=arr1[0]->salary();//assume first salary is highest
     
     //take one variable for recording current position object's salary in loop
     float currentSal=0.0f;
-    for(int i=0;i<3;i++){
+
+    for(int i=0; i<SIZE; i++){
         //fetch current position employee's salary
         currentSal=arr1[i]->salary();
+
         // id currentSal is more than max,update  max and result pointers
         if(currentSal > max){
             max=currentSal;
@@ -69,38 +74,42 @@ Employee *EmployeeWithHighestSalary(Employee *arr1[3])
 }
 
 
-int CountEmpWithGivenDept(Employee *arr1[3], DepartmentType type)
+int CountEmpWithGivenDept(Employee *arr1[SIZE], DepartmentType dept)
 {
+    if(CheckNull(arr1)){
+        //data is empty
+        throw std::runtime_error("Data is empty");
+    }
     int count=0;
-    for(int i=0;i<3;i++)
+    for(int i=0; i<SIZE; i++)
     {
-        if((arr1[i])->dept() == type)
+        if((arr1[i])->dept() == dept)
         {
             count++;
         }
     }
     return count;
 }
-//To get Avg Budget of project by Employee
-float AvgBudget(Employee *arr[3])
-{
+    //To get Avg Budget of project by Employee
+    float AvgBudget(Employee *arr[SIZE])
+    {
     if(CheckNull(arr)){
         //data is empty
         throw std::runtime_error("Data is empty");
     }
     float total=0.0f;
-    for(int i=0;i<3;i++){
+    for(int i=0; i<SIZE; i++){
         total+=(arr[i])->project()->budget();
     }
     return total/3;
 
 }
 
-void FreeMemory(Employee *arr1[3])
+void FreeMemory(Employee *arr1[SIZE])
 { 
     //checknull is not required here
     //delete the inner Projet pointer
-    for(int i=0;i<3;i++)
+    for(int i=0; i<SIZE; i++)
     {
         delete arr1[i];//ensure this also deletes Project
     }
