@@ -3,6 +3,8 @@
 #include<vector>
 //Alternate name for datatype
 using ls=std::list<std::string>;
+
+
 //Make the class as template type
 template <typename T>
 class Employee
@@ -22,11 +24,11 @@ public:
         std::cout<<"Employee with ID"<<_id<<"is destroyed";
     }
 
-    template <typename T>
-    friend std::ostream &operator<<(std::ostream &os, const Employee<T> &rhs) {//<T><T>  make it one
+    template <typename A>//change the template name to A
+    friend std::ostream &operator<<(std::ostream &os, const Employee<A> &rhs) {//<T><T>  make it one
         // os << "_skills: " << rhs._skills
         os << "_skills: ";
-        //for eact loop(range-based for cpp)
+        //for each loop(range-based for cpp)
         for(std::string element :rhs._skills)
         {
             os<<element<<"\t";
