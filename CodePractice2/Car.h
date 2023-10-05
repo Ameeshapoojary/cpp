@@ -15,33 +15,22 @@ private:
 public:
     Car()=delete;//default constructor is disabled
     Car(const Car& )=default;//defaulted copy constructor
-    Car(std::string chassisNumber,
-    std::string brand,
-    std::string model,
-    CarCategory category,
-    float price,
-    int seatCount,
-    int fuelCapacity);
+    Car(std::string chassisNumber,std::string brand,std::string model,
+    CarCategory category,float price,int seatCount,int fuelCapacity);
     Car(std::string chassisNumber,
     std::string brand,
     std::string model,
     float price);
     ~Car() {
-        std::cout<<carChassisNumber<<"is destroyed"<<std::endl;
+        std::cout<<"chasses number"<<carChassisNumber<<"is destroyed"<<std::endl;
     }
     
-    Car operator+(Car n1 )
-    {
-        carCategory a=this->carChassisNumber+ n2.carChassisNumber;
-        carCategory b=this->carBrand+ n2.carBrand;
-        carCategory c=this->carModel+ n2.carModel;
-        carCategory d=this->carCategory+ n2.carCategory;
-        carCategory e=this->carPrice+ n2.carPrice;
-        carCategory f=this->carSeatCount+ n2.carSeatCount;
-        carCategory g=this->carFuelCapacity+ n2.carFuelCapacity;
-        Car temp(a,b,c,d,e,f,g);
-        return temp;
+    //Overload of + operator
+   float  operator+(Car car )
+    {   
+        return this->carPrice+ car.carPrice;   
     }
+    
 
     std::string getCarChassisNumber() const { return carChassisNumber; }
     void setCarChassisNumber(const std::string &carChassisNumber_) { carChassisNumber = carChassisNumber_; }
