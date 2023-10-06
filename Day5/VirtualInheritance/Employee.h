@@ -8,6 +8,7 @@ private:
     std::string _name;
 
 public:
+    Employee()=default;
     Employee(std::string id,std::string name)
     :_id(id),_name(name) {}
 
