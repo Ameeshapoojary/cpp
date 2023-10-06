@@ -21,3 +21,8 @@ float CreditCard::CalculateTaxOnCharge()
         return (limit() /10)*annualCharge();
     }
 }
+
+int CreditCard::operator+(const CreditCard obj)
+{
+    return limit()+obj.limit();
+}

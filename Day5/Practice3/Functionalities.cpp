@@ -22,6 +22,9 @@ void CreateObj(Card *arr[SIZE])
     arr[3]=new CreditCard(2344,451,CardType::MASTERCARD,45672.0f,100000,45000);
     arr[4]=new CreditCard(2344,367,CardType::MASTERCARD,786.0f,100000,45000);
 
+
+    std::cout<<"+ operator"<<*arr[2]+*arr[3]<<std::endl;
+
 }
 
 void MatchingIssuerCards(Card *arr[SIZE], CardType value, Card* res[SIZE])

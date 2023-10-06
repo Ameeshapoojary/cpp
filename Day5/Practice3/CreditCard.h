@@ -11,6 +11,9 @@ public:
     CreditCard(int number,int cvvnumber,CardType issuer,float annualcharge,int limit, int translimit);
 
     float CalculateTaxOnCharge() override;
+
+    int operator+(const CreditCard obj);
+    
     ~CreditCard() {
         std::cout<<"Credit Card is destroyed";
     }
