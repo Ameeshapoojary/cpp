@@ -3,7 +3,7 @@
 Card::Card(int number, int cvvnumber,CardType issuer, float annualcharge,int limit)
 :_number(number),_cvv_number(cvvnumber),_issuer(issuer),_annual_charge(annualcharge),_limit(limit) 
 {
-    if(number=1000 && number <1000)
+    if(number>=1000 && number <1000)
     {
        _number=number;
     }
@@ -11,7 +11,7 @@ Card::Card(int number, int cvvnumber,CardType issuer, float annualcharge,int lim
         std::runtime_error("Invalid Number for Card");
     }
 
-    if(cvvnumber=1000 && cvvnumber <1000)
+    if(cvvnumber>=100 && cvvnumber <1000)
     {
        _cvv_number=cvvnumber;
     }

@@ -15,12 +15,12 @@ i.e if data is empty
 */
     void CreateObj(Card* arr[SIZE]);
 
-    Card** MatchingIssuerCards(Card *arr[SIZE],CardType value);
+    void MatchingIssuerCards(Card *arr[SIZE], CardType value, Card* res[SIZE]);
 
     int HighestAnnualCharge(Card *arr[SIZE]);
  
     Card* PointerToMatchingNumber(Card* arr[SIZE],int number);
 
-
+    void FreeMemory(Card* arr[SIZE]);
 #endif // FUNCTIONALITIES_H
 

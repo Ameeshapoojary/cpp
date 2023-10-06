@@ -8,4 +8,16 @@ DebitCard::DebitCard(int number, int cvvnumber, CardType issuer, float annualcha
 
 float DebitCard::CalculateTaxOnCharge()
 {
-   CalculateTaxOnCharge
+   if(issuer()==CardType::VISA)
+    {
+        return (limit() /100)*annualCharge();
+    }
+    else if(issuer()==CardType::MASTERCARD)
+    {
+        return (limit() /50)*annualCharge();
+    }
+    else
+    {
+        return (limit() /10)*annualCharge();
+    }
+}

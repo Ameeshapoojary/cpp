@@ -12,21 +12,25 @@ int main(){
         CreateObj(arr);
 
         int res=HighestAnnualCharge(arr);
-        std::cout<<"CVV"<<res<<std::endl;
-        //Card** res{nullptr};
-        MatchingIssuerCards(arr,CardType::MASTERCARD);
-        for(int i=0;i<SIZE;i++){
-        if(res[i]!=nullptr){
-            std::cout<<*(res[i]);
+        std::cout<<"CVV:"<<res<<std::endl;
+        Card* ans[SIZE] = {nullptr};
+        
+        MatchingIssuerCards(arr, CardType::MASTERCARD, ans);
+        
+        for(int i = 0; i < 5; i++ ) {
+            if (ans[i] == nullptr) {
+                break;
+            }
+            else {
+                std::cout << *(ans[i]) << "\n";
+            }
         }
-        else{
-            break;
-        } 
-    }
+
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+    FreeMemory(arr);
     
 }

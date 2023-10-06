@@ -16,62 +16,78 @@ bool checkNull(Card *arr[SIZE])
 
 void CreateObj(Card *arr[SIZE])
 {
-    arr[0]=new DebitCard(2344,231,CardType::MASTERCARD,45672.0f,100000,DebitType::PREMIUM);
-    arr[1]=new DebitCard(6644,231,CardType::RUPAY,45672.0f,100000,DebitType::SIGNATURE);
-    arr[2]=new CreditCard(2344,231,CardType::MASTERCARD,45672.0f,100000,45000);
-    arr[3]=new CreditCard(2344,231,CardType::MASTERCARD,45672.0f,100000,45000);
-    arr[4]=new CreditCard(2344,231,CardType::MASTERCARD,45672.0f,100000,45000);
+    arr[0]=new DebitCard(2344,831,CardType::MASTERCARD,45672.0f,100000,DebitType::PREMIUM);
+    arr[1]=new DebitCard(6644,531,CardType::RUPAY,45672.0f,100000,DebitType::SIGNATURE);
+    arr[2]=new CreditCard(2344,131,CardType::MASTERCARD,992.0f,100000,45000);
+    arr[3]=new CreditCard(2344,451,CardType::MASTERCARD,45672.0f,100000,45000);
+    arr[4]=new CreditCard(2344,367,CardType::MASTERCARD,786.0f,100000,45000);
 
 }
 
-Card** MatchingIssuerCards(Card *arr[SIZE], CardType value)
+void MatchingIssuerCards(Card *arr[SIZE], CardType value, Card* res[SIZE])
 {
-    Card* res[SIZE]={nullptr};
-    int k=0;
-    for(int i=0;i<SIZE;i++)
-    {
-        if(arr[i]->issuer()==value){
-            res[k++]=arr[i];
+    if(checkNull(arr)) {
+        throw std::runtime_error("Invalid input. No data found\n");
+    }
+    int k=0; 
+    for(int i=0; i < SIZE; i++) {
+        if (arr[i] == nullptr){
+            continue;
+        }
+        if (arr[i]->issuer() == value ) {
+            res[k++] = arr[i];
         }
     }
-    return res;
 }
 
 int HighestAnnualCharge(Card *arr[SIZE])
-{
-    Card* result=arr[0];
+{   
+    if(checkNull(arr)) {
+        throw std::runtime_error("Invalid input. No data found\n");
+    }
     float max=arr[0]->annualCharge();
-    int cvv=arr[0]->cvvNumber();
+    int res = arr[0]->cvvNumber();
     float currentCharge=0.0f;
     for(int i=0;i<SIZE;i++)
-    {
-        currentCharge=arr[i]->annualCharge();
-        if(currentCharge >max)
-        {
-            max=currentCharge;
-            result=arr[i];
-            cvv=arr[i]->cvvNumber();
-        }
-        }
-        return cvv;
-}
-
-Card *PointerToMatchingNumber(Card *arr[SIZE],int number)
-{
-    Card* res=nullptr;
-    for(int i=0;i<SIZE;i++){
-        if(arr[i]==nullptr){
+    {   
+        if (arr[i] == nullptr){
             continue;
         }
-        if(arr[i]->number() ==number){
-            res=arr[i];
+        currentCharge=arr[i]->annualCharge();
+        if(currentCharge <max)
+        {
+            max=currentCharge;
+            res=arr[i]->cvvNumber();    
         }
-    }
-    if(res ==nullptr)
-    {
-        std::runtime_error("No matching Card Found");
-    }
-    else{
+        }
         return res;
+}
+ 
+Card *PointerToMatchingNumber(Card *arr[SIZE],int number)
+{
+    if(checkNull(arr)) {
+        throw std::runtime_error("Invalid input. No data found\n");
+    }
+    Card* res = nullptr;
+    for(int i = 0; i < SIZE; i++ ) {
+
+        if (arr[i] == nullptr){
+            continue;
+        }
+
+        if(arr[i]->number() == number) {
+            res = arr[i];
+        }
+        return res;
+    
+    
+}
+}
+
+void FreeMemory(Card *arr[SIZE])
+{
+    for(int i=0;i<SIZE;i++)
+    {
+        delete arr[i];
     }
 }

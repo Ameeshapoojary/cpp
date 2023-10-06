@@ -1,6 +1,8 @@
 #ifndef CREDITCARD_H
 #define CREDITCARD_H
 #include"CardType.h"
+#include<iostream>
+#include"Card.h"
 class CreditCard:public Card
 {
 private:
